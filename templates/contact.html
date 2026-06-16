@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row g-5">
+  <div class="col-lg-6">
+    <h2>Contact CosmoCare Pro</h2>
+    <p>Reach out for product support, partnership inquiries, or pharmacy account assistance.</p>
+    <div class="mb-4">
+      <h5>Business Information</h5>
+      <p><strong>Email:</strong> support@cosmocarepro.com</p>
+      <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+      <p><strong>Address:</strong> 123 Wellness Drive, Beauty City, USA</p>
+    </div>
+    <div class="bg-light p-4 rounded shadow-sm">
+      <h5>Google Maps</h5>
+      <div class="map-placeholder bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 250px;">
+        Google Maps Placeholder
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-body">
+        <h4 class="card-title mb-4">Send a Message</h4>
+        <form method="POST" novalidate>
+          {{ form.hidden_tag() }}
+          <div class="mb-3">
+            {{ form.name.label(class_='form-label') }}
+            {{ form.name(class_='form-control', placeholder='Enter your name') }}
+          </div>
+          <div class="mb-3">
+            {{ form.email.label(class_='form-label') }}
+            {{ form.email(class_='form-control', placeholder='Enter your email') }}
+          </div>
+          <div class="mb-3">
+            {{ form.message.label(class_='form-label') }}
+            {{ form.message(class_='form-control', placeholder='Your message', rows=5) }}
+          </div>
+          {{ form.submit(class_='btn btn-primary') }}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

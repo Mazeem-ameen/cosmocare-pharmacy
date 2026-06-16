@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="py-5 text-center bg-light rounded-4 shadow-sm">
+  <div class="container">
+    <h1 class="display-5 fw-bold">CosmoCare Pro</h1>
+    <p class="fs-5">Modern Cosmetic Pharmacy management for your clinic, beauty brand, or personalized wellness shelf.</p>
+    <a href="{{ url_for('products') }}" class="btn btn-primary btn-lg">Browse Products</a>
+  </div>
+</div>
+
+<section class="py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Featured Products</h2>
+    <a href="{{ url_for('products') }}" class="btn btn-outline-primary">View All Products</a>
+  </div>
+  <div class="row">
+    {% for product in products %}
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow-sm">
+        <img src="{{ url_for('static', filename='images/' + (product.image_filename or 'placeholder.png')) }}" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text text-muted">{{ product.category.name }}</p>
+          <p class="card-text">${{ '%.2f' | format(product.price) }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="py-5 bg-white rounded-4 shadow-sm">
+  <h2 class="mb-4">Customer Reviews</h2>
+  <div class="row">
+    {% for review in reviews %}
+    <div class="col-md-4 mb-3">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ review.name }}</h5>
+          <p class="text-warning">{% for _ in range(review.rating) %}★{% endfor %}{% for _ in range(5 - review.rating) %}☆{% endfor %}</p>
+          <p class="card-text">{{ review.text }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="py-5 mt-4 bg-primary text-white rounded-4 shadow-sm">
+  <div class="row align-items-center">
+    <div class="col-md-8">
+      <h2>Stay informed with CosmoCare Pro</h2>
+      <p>Get product alerts, new arrivals, and expert pharmacy tips delivered to your inbox.</p>
+    </div>
+    <div class="col-md-4">
+      <form>
+        <div class="input-group">
+          <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email">
+          <button class="btn btn-dark" type="submit">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

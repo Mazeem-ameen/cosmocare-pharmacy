@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="card-title mb-4">{{ title }}</h3>
+        <form method="POST" enctype="multipart/form-data" novalidate>
+          {{ form.hidden_tag() }}
+          <div class="mb-3">
+            {{ form.name.label(class_='form-label') }}
+            {{ form.name(class_='form-control') }}
+          </div>
+          <div class="mb-3">
+            {{ form.category.label(class_='form-label') }}
+            {{ form.category(class_='form-select') }}
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              {{ form.price.label(class_='form-label') }}
+              {{ form.price(class_='form-control') }}
+            </div>
+            <div class="col-md-6 mb-3">
+              {{ form.stock.label(class_='form-label') }}
+              {{ form.stock(class_='form-control') }}
+            </div>
+          </div>
+          <div class="mb-3">
+            {{ form.description.label(class_='form-label') }}
+            {{ form.description(class_='form-control', rows=4) }}
+          </div>
+          <div class="mb-3">
+            {{ form.image.label(class_='form-label') }}
+            {{ form.image(class_='form-control') }}
+          </div>
+          {{ form.submit(class_='btn btn-primary') }}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

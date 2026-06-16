@@ -1,0 +1,34 @@
+body {
+  background-color: #f8f9fc;
+  color: #212529;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.bg-primary {
+  background-color: #2f6d8d !important;
+}
+
+.btn-primary {
+  background-color: #2f6d8d;
+  border-color: #2f6d8d;
+}
+
+.btn-primary:hover {
+  background-color: #24556c;
+  border-color: #24556c;
+}
+
+.map-placeholder {
+  min-height: 250px;
+}
+
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
